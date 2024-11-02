@@ -1,0 +1,7 @@
+##################################################################################
+# DIRECTORY STRUCTURE
+##################################################################################
+
+1 )This directory contains the simulation results
+
+  mk{Protocol}Test/: a directory is generated for each protocol, for example, mkWiFiTest

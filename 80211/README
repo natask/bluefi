@@ -1,0 +1,26 @@
+README - 802.11a Transmitter
+
+This package implements the baseband hardware logic for an 802.11a
+Transmitter, which is a cleaned up and partially parameterized version
+of the 802.11a (originally done in the 2005 Spring term of MIT's 6.884
+class) [http://csg.csail.mit.edu/6.884/projects.html]. 
+
+One can build the using the command "make design". This generates 6
+variants of the Pipeline all of which vary in how the IFFT computation
+is done (whether combinationally, in a simple pipeline or a circular
+pipeline of varying complexity).
+
+The following paper, included in this directory, describes the system
+and parameterization in detail:
+
+  Nirav Dave, Michael Pellauer, Steve Gerding, Arvind "802.11a
+  Transmitter: A Case Study in Microarchitectural Exploration" Formal
+  Methods and Models for Codesign (MEMOCODE 2006). Napa Valley, CA,
+  USA. July 2006
+
+Currently, some of the static elaboration and optimizations are fairly
+heavy so compilation takes many minutes (but less than an hour in
+total). This project eventually grew into a highly parameterized OFDM
+baseband system -- this OFDM baseband system project is also available
+via MIT's open source hardware design repository.
+

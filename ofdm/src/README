@@ -1,0 +1,38 @@
+##################################################################################
+# DIRECTORY STRUCTURE
+##################################################################################
+
+This directory contains the source code of the project.
+
+  Makefile: Makefile 
+  README: This README file
+  WUSB\: Contain WUSB's top-level and protocol specific modules, currently empty
+  WiFi\: Contains WiFi's (802.11a) top-level and protocol specific modules
+  WiMAX\: Contains WiMAX's (802.16) top-level and protocol specific modules
+  bsv.mk: Auxiliary file for Makefile
+  dc_scripts\: Contains Design Compiler synthesis scripts
+  lib\: Contains generic reusable OFDM IPs
+  scripts\: Contains Perl and Matlab scripts for generating protocol specific preambles
+
+
+##################################################################################
+# IMPORTANT FILES
+##################################################################################
+
+There are several important files that can help one understand the design:
+
+1) WiFi\Parameters.bsv:
+   
+This file describes how to instantiate the IPs with algorithmic and architecture settings suitable for
+WiFi (802.11a) protocol. One can ompare the values in this file to Figure 3 shown in doc/OFDM.pdf. 
+This file can act as the template for other OFDM protocols.
+
+2) WiFi\Receiver.bsv, WiFi\Transmitter.bsv, WiFi\Transceiver.bsv
+
+These 3 files describe the top-level design of a Transceiver and show how IPs can be connected together.
+
+3) lib\DataTypes.bsv, lib\Controls.bsv, lib\Interfaces.bsv:
+
+These 3 files describe the definition of all data types and interfaces used in the projects.
+
+

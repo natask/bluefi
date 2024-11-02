@@ -1,0 +1,67 @@
+##################################################################################
+# A. REQUIREMENTS
+##################################################################################
+
+1) Bluespec compiler with version equal or newer than 2006.11 (build 10150, 2006-11-11)
+
+2) 2GB or above RAM
+
+3) Environement variable BLUESPECDIR set to the Bluespec's installation directory
+
+
+##################################################################################
+# B. QUICK START
+##################################################################################
+
+In src/ directory:
+
+1) Steps to generate WiFi components, built files will be at build/mkWiFiTest, 
+simulation executable in build/mkWiFiTest/bin,
+verlog rtl in build/mkWiFiTest/src:
+
+make build_WiFi
+
+2a) To run bluesim simulation, simulation result will at result/mkWiFiTest/run_bsim:
+
+make runbsim_WiFi 
+
+2b) To run iverilog simulation, simulation result will at result/mkWiFiTest/run_ivsim:
+
+make runivsim_WiFi
+
+3) To clean all built files:
+
+make clean_WiFi
+
+Notes: For generating WiMAX components, replace "WiFi" by "WiMAX".
+
+
+##################################################################################
+# C. DESIGN DESCRIPTION
+##################################################################################
+
+This is the source code for a synthesizble generic baseband OFDM transceiver presented 
+in the paper "From WiFi to WiMAX: Techniques for High-Level IP Reuse across Different OFDM
+Protocols" (doc/OFDM.pdf). The top-level design is shown in Figure 2 in the paper. 
+The implementation of each block in the design is parameterized so that it can be reused
+across both 802.11a and 802.16 (WiMAX) protocols. Current effort is spent on trying to
+make the design work for WUSB too. Also, the channel estimator currently is a dummy one, 
+a more complex solution is going to be implemented in the near future. The reed solomon 
+decoder implementation is under test and will be released soon too.   
+
+
+##################################################################################
+# D. DIRECTORY STRUCTURE
+##################################################################################
+
+./build/: compilation built
+./src: all source files
+./result: simulation results
+
+For more details, please refer to the README in each subdirectory.
+
+##################################################################################
+# E. LICENSE 
+##################################################################################
+
+Please refer to the LICENSE file.
