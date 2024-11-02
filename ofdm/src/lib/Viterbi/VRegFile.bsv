@@ -25,7 +25,7 @@
 //----------------------------------------------------------------------//
 
 import Vector::*;
-import Monad::*;
+//import Monad::*;
 
 interface VRegFile#(numeric type sub_idx_sz,   // sub index
                     numeric type out_sz,       // index to the output vector

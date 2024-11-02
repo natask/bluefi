@@ -25,7 +25,7 @@
 //----------------------------------------------------------------------//
 
 import FIFO::*;
-import Monad::*;
+//import Monad::*;
 import Traceback::*;
 import Vector::*;
 import VParams::*;

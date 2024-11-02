@@ -27,7 +27,7 @@
 import Interfaces::*;
 import FIFO::*;
 import Vector::*;
-import Monad::*;
+//import Monad::*;
 import VParams::*;
 import IViterbi::*;
 import DataTypes::*;
