@@ -183,7 +183,7 @@ function CORDICData#(vfsz,afsz) getRotateModeInData(FixedPoint#(aisz,afsz) beta)
 
       Bit#(afsz) tempBeta = pack(fxptGetFrac(beta));
       Tuple2#(Bit#(2), Bit#(afszl2)) {inQuad, betaLSBs} = split(pack(tempBeta));
-      FixedPoint#(1,afsz) inBeta = unpack(zeroExtend(betaLSBs));      
+      FixedPoint#(1,afsz) inBeta = unpack({3'b0, betaLSBs}); // unpack(zeroExtend(betaLSBs));
       return CORDICData{x:fromRational(607253,1000000),y:0,beta:inBeta,mode:RotateMode, quad:inQuad};
 endfunction // CORDICData
 
