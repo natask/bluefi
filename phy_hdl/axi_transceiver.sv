@@ -246,7 +246,7 @@ module axi_transceiver #
 			    .RDY_receiver_outLength_get(transceiver$RDY_receiver_outLength_get)
                    );
 
- // transmiter txstart
+ // S00_AXIS (receiver in 32)
  // ignore // input wire [:]  s00_axis_tstrb,
  assign transceiver$receiver_in_put =  s00_axis_tdata;
  assign transceiver$EN_receiver_in_put = s00_axis_tvalid && transceiver$RDY_receiver_in_put;
@@ -264,7 +264,7 @@ module axi_transceiver #
  // S02_AXIS (transmitter txdata 8)
  assign transceiver$transmitter_txData_inData =  s02_axis_tdata; //truncate top 24 bits
  assign transceiver$EN_transmitter_txData = s02_axis_tvalid && transceiver$RDY_transmitter_txData;
- assign s01_axis_tready = transceiver$RDY_transmitter_txData;
+ assign s02_axis_tready = transceiver$RDY_transmitter_txData;
  // how to use 
     // input wire      s02_axis_tlast,
 
