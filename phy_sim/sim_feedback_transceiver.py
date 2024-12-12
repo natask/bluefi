@@ -21,7 +21,8 @@ from cocotb.handle import SimHandleBase
 
 C_S00_AXIS_TDATA_WIDTH = 32
 C_M00_AXIS_TDATA_WIDTH = 32
-LENGTH = 256 #10^12 - 1 = 4097
+LENGTH = 1024 #10^12 - 1 = 4097
+BYTE = 1 << 8
 RATE = 4 #10^12 - 1 = 4097
 DEBUG = 1
 LOG_LEVEL = logging.WARNING
@@ -208,12 +209,12 @@ async def setup_test(dut):
     await set_ready(dut, 1)
     await reset(dut.s00_axis_aclk, dut.s00_axis_aresetn, 2, 0)
     # feed the driver:
-    base_array = np.arange(256)
+    base_array = np.arange(BYTE)
 
     # Repeat this array 1024 times
     k = 2
     for _ in range(k):
-        samples = np.tile(base_array, LENGTH // 256)
+        samples = np.random.randint(0, BYTE, size=LENGTH)
         samples = samples.astype(np.int32)
         data = {'type': 'burst', "contents": {"data": samples}}
         tester.input_driver.append(data)
